@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
  <head>
+  <meta charset="utf-8">
   <title>Example import external js</title>
-  <script src="game.js"></script>
+  <script defer src="game.js"></script>
     </head>
  <body>
-    
+  <div id="container">
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+  </div>
+  <div id="results"></div>
+  <div id="add">0</div>
  </body>
 </html>

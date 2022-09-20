@@ -1,1 +1,29 @@
-
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="webasketch.js" defer></script>
+        <title>Ecran magique</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="shortcut icon" href="#">
+    </head>
+    <body>
+        <div class="global-container">
+        <h1>Ecran magique</h1>
+        <div class="contenu">
+            <div class="grille"></div>
+            <div class="buttons">
+                <button onclick="changerLaCouleur('black')">Noir</button>
+                <button onclick="changerLaCouleur('random')">Multicolore</button>
+                <button onclick="changerLaCouleur('white')">Gomme</button>
+                <button onclick="effacerLaGrille()">Effacer</button>
+            </div>
+            <div class="buttons">
+                <input type="text" placeholder="Taille de la Grille" value="16" onchange="changerTaille(this.value)">
+                <button>Choisir la taille</button>
+            </div>
+            <div class="erreur"></div>
+        </div>
+        </div>
+    </body>
+</html>

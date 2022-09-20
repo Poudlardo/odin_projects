@@ -27,7 +27,7 @@ function changerTaille(input) {
     if (input >= 2 && input <= 100) {
     choisirTaille(input); 
     } else {
-    erreur.textContent = "wsh tu joue a quoi le sang ?? La valeur doit être comprise entre 2 et 100";
+    erreur.textContent = "La valeur doit être comprise entre 2 et 100";
     }
 }
 

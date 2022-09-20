@@ -1,8 +1,8 @@
 # odin_projects
 
-FR // Exercices et petits projets que j'ai réalisés (à partir de zéro) dans le contexte du chemin d'apprentissage supérieur (les projets Odin)
+FR // Petits projets réalisés de zéro dans le cadre du parcours d'apprentissage The Odin Project 
 
-EN // Exercices and small projects I made (from scratch) in the context of TOP (The Odin Projects) learning path
+EN // Small projects I made from scratch in the context of TOP (The Odin Projects) learning path
 
 
 - 1) [Odin Recipes](https://poudlardo.github.io/odin_projects/odin-recipes-page/)

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculette</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="calculette.js"></script>
+    </head>
+    <body>
+        <h1>Calculette</h1>
+        <div id="calculatrice">
+            <div id="affichage"></div><br>
+            <div class="bouttons">
+                <div id="grillenombre">
+                <button onclick="afficherValeurs(1)">1</button>
+                <button onclick="afficherValeurs(2)">2</button>
+                <button onclick="afficherValeurs(3)">3</button>
+                <button onclick="afficherValeurs(4)">4</button>
+                <button onclick="afficherValeurs(5)">5</button>
+                <button onclick="afficherValeurs(6)">6</button>
+                <button onclick="afficherValeurs(7)">7</button>
+                <button onclick="afficherValeurs(8)">8</button>
+                <button onclick="afficherValeurs(9)">9</button>
+                <button onclick="afficherValeurs(0)">0</button>
+                </div>
+                <div id="operateurs">
+                <button onclick="afficherValeurs('+')" id="addition">+</button>
+                <button onclick="afficherValeurs('-')" id="soustraction">-</button>
+                <button onclick="afficherValeurs('/')" id="division">÷</button>
+                <button onclick="afficherValeurs('*')" id="multiplication">x</button>
+                <button onclick="operator()" id="egal">=</button>
+                <button onclick="toutEffacer()" id="effacer">Effacer</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

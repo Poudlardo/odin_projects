@@ -2,36 +2,32 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Calculette</title>
+        <title>Calculatrice</title>
         <link rel="stylesheet" href="style.css">
         <script src="calculette.js" defer></script>
     </head>
     <body>
-        <h1>Calculette</h1>
-        <div id="calculatrice">
-            <div id="affichage"></div><br>
+      <div id="calculatrice">
+        <h1>Calculatrice</h1>
+            <div id="affichage"></div>
             <div class="bouttons">
                 <button onclick="afficherValeurs(1)">1</button>
                 <button onclick="afficherValeurs(2)">2</button>
                 <button onclick="afficherValeurs(3)">3</button>
-                <button onclick="afficherValeurs('+')" id="addition">+</button><br>
-
+                <button onclick="afficherValeurs('+')" id="addition">+</button>
                 <button onclick="afficherValeurs(4)">4</button>
                 <button onclick="afficherValeurs(5)">5</button>
                 <button onclick="afficherValeurs(6)">6</button>
+                <button onclick="afficherValeurs('-')" id="soustraction">-</button>
                 <button onclick="afficherValeurs(7)">7</button>
-                <button onclick="afficherValeurs('-')" id="soustraction">-</button><br>
-
                 <button onclick="afficherValeurs(8)">8</button>
                 <button onclick="afficherValeurs(9)">9</button>
+                <button onclick="afficherValeurs('/')" id="division">÷</button>
                 <button onclick="afficherValeurs(0)">0</button>
-                <button onclick="afficherValeurs('/')" id="division">÷</button><br>
-                
                 <button onclick="operate()" id="egal">=</button>
                 <button onclick="toutEffacer()" id="effacer">Effacer</button>   
                 <button onclick="afficherValeurs('*')" id="multiplication">x</button>
-
             </div>
-        </div>
+      </div>
     </body>
 </html>

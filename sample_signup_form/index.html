@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <script>
@@ -24,10 +24,11 @@
 <body>
     <div id="background-img-container">
         <img src="/img/11476747.png" alt="Logo vite">
-        <div id="dark-transparent-border"></div>
     </div>
     <div id="form-page-container">
-        <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br><br>Accusamus aspernatur quidem non voluptatibus ducimus cupiditate officiis quas doloribus quod, rem corporis, ipsam soluta!</h2><br>
+        <h2>1er service de livraison de particulier à particulier en France.<br><br>
+        Il te faut absolument la version originale d'un manga japonais ? Ca tombe bien, François est à Tokyo.
+        Il peut te le récupérer et te l'amener en main propre sur Paris dans 3 jours !</h2><br>
         <form onsubmit ="return pssWrdValidation()">
             <fieldset>
             <p>Vos 3 premières livraisons sans frais* dès maintenant</p>
@@ -61,7 +62,7 @@
             </fieldset>
             <label for="create_account"></label>
             <button type="submit" id="create_account">Créer mon compte</button>
-            <p>Tu as déjà un compte ? <a href="#">Clique ici</a></p>
+            <p id="compte">Tu as déjà un compte ? <a href="#">Clique ici</a></p>
         </form>
         
     </div>

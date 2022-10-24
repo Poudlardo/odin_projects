@@ -10,4 +10,4 @@ EN // Small projects I made from scratch in the context of TOP (The Odin Project
 - 3 - [Sample Landing Page](https://poudlardo.github.io/odin_projects/sample-landing-page/index.html)
 - 4 - [Ecran magique](https://poudlardo.github.io/odin_projects/ecran_magique_web/web_ecran.html), un paint version web (très) simplifié
 - 5 - [Calculette en ligne](https://poudlardo.github.io/odin_projects/Calculette/index.html)
-- 6 - [Formulaire d'inscription](https://poudlardo.github.io/odin_projects/sample_signup_form/index.html),avec système de validation et confirmation de mots de passe
+- 6 - [Formulaire d'inscription](https://poudlardo.github.io/odin_projects/sample_signup_form/index.html), avec système de validation et confirmation de mots de passe

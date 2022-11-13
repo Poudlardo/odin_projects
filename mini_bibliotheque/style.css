@@ -1,4 +1,14 @@
-* {
+body {
     font-family: monospace;
     background-color: rgb(245, 245, 245);
+    width: 100vw;
+    height: 100vh;
+    margin: 0px auto;
+}
+
+form {
+    border: 1px solid black;
+    height: 160px;
+    width: 270px;
+    margin: 0 40vw;;
 }

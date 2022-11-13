@@ -1,4 +1,15 @@
-let myLibrary = [];
+let myLibrary = [{
+  title: 'The Hobbit',
+  author: 'J. R. R. Tolkien',
+  pages: '287',
+  isRead: 'Not Read yet'
+},
+{
+  title: 'Da Vinci Code',
+  author: 'Dan Brown',
+  pages: '571',
+  isRead: 'Read'
+}];
 
 function Book(title, author, pages, isRead) {
     this.title = title
@@ -10,10 +21,10 @@ function Book(title, author, pages, isRead) {
     }
 }
 
-const theHobbit = new Book('The Hobbit','J. R. R. Tolkien','287', 'Not Read yet');
-const daVinciCode = new Book('Da Vinci Code','Dan Brown','571','Read');
-theHobbit.info() ;
-daVinciCode.info();
+//const theHobbit = new Book('The Hobbit','J. R. R. Tolkien','287', 'Not Read yet');
+//const daVinciCode = new Book('Da Vinci Code','Dan Brown','571','Read');
+//theHobbit.info() ;
+//daVinciCode.info();
 
 function addBookToLibrary() {
   const button = document.getElementById('submit');
@@ -34,10 +45,17 @@ button.addEventListener('click', () => {
      })
 })
 
-}
-
-for (i=0;i < myLibrary.length;i++) {
 
 }
+
+myLibrary.forEach(displayObject) ;
+
+function displayObject() {
+    const cardContainer = document.querySelector('.card-container')
+  cardContainer.innerHTML += `<div class="card">${cardContainer.childElementCount}</div>`
+}
+
+
+
 
 console.log(myLibrary);

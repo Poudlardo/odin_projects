@@ -47,23 +47,21 @@ myLibrary.forEach( Books =>  {
       paragraph.textContent = `${key}: ${Books[key]}`;
       createCard.appendChild(paragraph);
   };
-
-        // Create remove book button and add class attribute for each array card
-      const removeBookButton = document.createElement("button");
-      removeBookButton.classList.add("remove-book-button");
-      removeBookButton.textContent = "Enlever de la Bibliothèque"; 
-      removeBookButton.dataset.linkedArray = index;
-      createCard.appendChild(removeBookButton);
-      removeBookButton.addEventListener("click", removeBookFromLibrary);
-
      // Create read status button and add class attribute for each array card
       const readStatusButton = document.createElement("button");
       readStatusButton.classList.add("read-status-button");
       readStatusButton.textContent = "Lu / Pas Lu";
-
      // Link the data attribute of the toggle read button to the array and card
       readStatusButton.dataset.linkedArray = index;
       createCard.appendChild(readStatusButton);
+
+        // Create remove book button and add class attribute for each array card
+      const removeBookButton = document.createElement("button");
+      removeBookButton.classList.add("remove-book-button");
+      removeBookButton.textContent = "x"; 
+      removeBookButton.dataset.linkedArray = index;
+      createCard.appendChild(removeBookButton);
+      removeBookButton.addEventListener("click", removeBookFromLibrary);
 
      // Create event listener/toggle logic for array objects prototype for read status change
       readStatusButton.addEventListener("click", toggleReadStatus);
@@ -112,6 +110,13 @@ if (form.style.display === 'none') {
 
 let submitData = document.getElementById('submitBtn');
 submitData.addEventListener('click', formDatas);
+
+let resetData = document.getElementById('reset');
+resetData.addEventListener('click', resetDatas);
+
+function resetDatas() {
+  document.getElementById("form").reset();
+}
 
 function formDatas() {
 let titleValue = document.getElementById('Titre').value;

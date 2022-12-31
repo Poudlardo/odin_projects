@@ -1,25 +1,25 @@
 let myLibrary = [{
   Titre: 'The Hobbit',
-  author: 'J. R. R. Tolkien',
-  pages: '287',
-  isRead: 'Pas Lu'
+  Auteur: 'J. R. R. Tolkien',
+  Pages: '287',
+  Statut: 'Pas Lu'
 },
 {
   Titre: 'Da Vinci Code',
-  author: 'Dan Brown',
-  pages: '571',
-  isRead: 'Lu'
+  Auteur: 'Dan Brown',
+  Pages: '571',
+  Statut: 'Lu'
 }];
 
-function Book(Titre, author, pages, isRead) {
+function Book(Titre, Auteur, Pages, Statut) {
     this.Titre = Titre;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
+    this.Auteur = Auteur;
+    this.Pages = Pages;
+    this.Statut = Statut;
 }
 
-function pushInMyLibrary(Titre, author, pages, isRead) {
-  let aBook = new Book(Titre, author, pages, isRead);
+function pushInMyLibrary(Titre, Auteur, Pages, Statut) {
+  let aBook = new Book(Titre, Auteur, Pages, Statut);
   myLibrary.push(aBook);
   createCardItem();
 }
@@ -74,12 +74,12 @@ myLibrary.forEach( Books =>  {
     const toggleBook = new Book();
 
     // Run check to see what read value is present to toggle from
-    if (myLibrary[parseInt(retrieveBookToToggle)].isRead == "Lu") {
-      toggleBook.isRead = "Pas Lu";
-      myLibrary[parseInt(retrieveBookToToggle)].isRead = toggleBook.isRead;
-    } else if (myLibrary[parseInt(retrieveBookToToggle)].isRead == "Pas Lu") {
-      toggleBook.isRead = "Lu";
-      myLibrary[parseInt(retrieveBookToToggle)].isRead = toggleBook.isRead;
+    if (myLibrary[parseInt(retrieveBookToToggle)].Statut == "Lu") {
+      toggleBook.Statut = "Pas Lu";
+      myLibrary[parseInt(retrieveBookToToggle)].Statut = toggleBook.Statut;
+    } else if (myLibrary[parseInt(retrieveBookToToggle)].Statut == "Pas Lu") {
+      toggleBook.Statut = "Lu";
+      myLibrary[parseInt(retrieveBookToToggle)].Statut = toggleBook.Statut;
     }
     createCardItem();
   }
@@ -94,7 +94,6 @@ myLibrary.forEach( Books =>  {
 }) 
 }
 // variables
-
 
 
 // action to display the form, works
@@ -116,9 +115,9 @@ submitData.addEventListener('click', formDatas);
 
 function formDatas() {
 let titleValue = document.getElementById('Titre').value;
-let authorValue = document.getElementById('author').value;
-let pagesValue = document.getElementById('pages').value;
-let readOrNot = document.getElementById('isRead').value;
+let authorValue = document.getElementById('Auteur').value;
+let pagesValue = document.getElementById('Pages').value;
+let readOrNot = document.getElementById('Statut').value;
 
 if (titleValue == "" || authorValue == "" || pagesValue == "" || readOrNot =="") {
   return;

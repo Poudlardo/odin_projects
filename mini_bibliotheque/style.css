@@ -10,10 +10,11 @@ body {
 
 #form-column {
     padding: 10px;
+    border: 1px solid black;
+    height: 600px;
 }
 
 form {
-    border: 1px solid black;
     height: 160px;
     width: 270px;
 }
@@ -28,7 +29,13 @@ form {
     padding: 10px;
 }
 .card {
-    border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 4px 2px 8px rgb(179, 179, 179);
     height: 270px;
     width: 190px;
+}
+
+.card > * {
+    margin: 10px;
 }

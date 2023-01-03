@@ -9,8 +9,10 @@
     <script src="biblio.js" defer></script>
 </head>
 <body>
-    <div id="form-column">
-        <h1>Ma Bibliothèque</h1>
+    <div id="bibliotheque">
+        <h1>MA BIBLIOTHÈQUE</h1>
+    </div>
+    <div id="form-row">
         <button id="show-form" type="button">Ajouter un livre</button>
         <div id="form-block" style="display:none">
         <form id="form">
@@ -25,11 +27,16 @@
                 <option value ="Pas Lu">Pas Lu</option>
             </select><br>
         </form>
-        <button id="submitBtn" type="submit">Confirmer</button>
-        <button id="reset" type="reset" >Effacer</button>
+        <div class="nonformbuttons">
+            <button id="submitBtn" type="submit">Confirmer</button>
+            <button id="reset" type="reset" >Effacer</button>
+        </div>
         </div>
     </div>
     <div class="card-container">
-    </div>
+    </div>  
+
+
+
 </body>
 </html>

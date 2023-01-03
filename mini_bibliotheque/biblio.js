@@ -38,7 +38,14 @@ myLibrary.forEach( Books =>  {
       let createCard = document.createElement('div');
       createCard.setAttribute('class', 'card');
       cardContainer.appendChild(createCard);
-
+      
+        // Create remove book button and add class attribute for each array card
+      const removeBookButton = document.createElement("button");
+      removeBookButton.classList.add("remove-book-button");
+      removeBookButton.textContent = "X"; 
+      removeBookButton.dataset.linkedArray = index;
+      createCard.appendChild(removeBookButton);
+      removeBookButton.addEventListener("click", removeBookFromLibrary);
 
       for (key in Books) {
       let paragraph = document.createElement('p');
@@ -55,13 +62,7 @@ myLibrary.forEach( Books =>  {
       readStatusButton.dataset.linkedArray = index;
       createCard.appendChild(readStatusButton);
 
-        // Create remove book button and add class attribute for each array card
-      const removeBookButton = document.createElement("button");
-      removeBookButton.classList.add("remove-book-button");
-      removeBookButton.textContent = "x"; 
-      removeBookButton.dataset.linkedArray = index;
-      createCard.appendChild(removeBookButton);
-      removeBookButton.addEventListener("click", removeBookFromLibrary);
+
 
      // Create event listener/toggle logic for array objects prototype for read status change
       readStatusButton.addEventListener("click", toggleReadStatus);
@@ -100,8 +101,7 @@ displayForm.addEventListener('click', ()=> {
 let form = document.getElementById('form-block');
 
 if (form.style.display === 'none') {
-
-  form.style.display = 'block';
+  form.style.display = 'inline-block';
 } else {
 
   form.style.display = 'none';

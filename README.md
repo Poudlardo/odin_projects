@@ -12,3 +12,4 @@ EN // Small projects I made from scratch in the context of TOP (The Odin Project
 - 5 - [Calculette en ligne](https://poudlardo.github.io/odin_projects/Calculette/index.html)
 - 6 - [Formulaire d'inscription](https://poudlardo.github.io/odin_projects/sample_signup_form/index.html), avec système de validation et confirmation de mots de passe
 - 7 - [Tableau Administrateur](https://poudlardo.github.io/odin_projects/tableau_admin/index.html)
+- 8 - [Mini Bibliothèque](https://poudlardo.github.io/odin_projects/mini_bibliotheque/index.html), outil de gestion des lecture (système de création de cartes pour les livres que l'on possède)

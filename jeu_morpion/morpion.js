@@ -3,11 +3,17 @@ let gameboardModule = (() => {
     return {gameboard};
 })();
 
-let displayControllerModule = (()=> {
-
-
-
-})()
+let displayControllerModule = ()=> {
+    if (theWinnerIs() === true) {
+        return alert('Bravo ! c\'est gagné!');
+    } else if (count[playerOne.assignedXO] === 0 && count[playerTwo.assignedXO === 0]) {
+        // joueur 1 qui joue
+    } else if (count[playerOne.assignedXO] > count[playerTwo.assignedXO]) {
+        // joueur 2 qui joue
+    } else if (count[playerOne.assignedXO] == count[playerTwo.assignedXO]) {
+        // joueur 1 qui joue
+    };
+    }
 
 let createPlayer = (playerName, playerNumber, assignedXO) => {
     let getPlayerName = () => { playerName;
@@ -22,11 +28,13 @@ let createPlayer = (playerName, playerNumber, assignedXO) => {
     } 
 })()
 
-function addMarkToGameBoardArray() {
-    let gridBoxes = document.querySelectorAll('.grid-box');
-    let boxesArray = [...gridBoxes];
-    boxesArray.forEach(box => {
-        box.addEventListener('click', console.log('zbeub zbeub'))
-    })
-}
+let addMarkToGameBoardArray = (() => {
+    const divs = document.querySelectorAll('.grid-box');
+    Array.from(divs).forEach(div => {
+    div.addEventListener('click', displayControllerModule);
+    });
+})()
 
+(function theWinnerIs() {
+
+})()

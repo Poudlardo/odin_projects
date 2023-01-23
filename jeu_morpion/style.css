@@ -10,6 +10,8 @@ body {
 
 #gameboard-container {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     border: 8px solid black;
     border-radius: 8px;
     height: 400px;
@@ -18,7 +20,7 @@ body {
     box-shadow: 1px 2px 4px rgb(128, 110, 89);
 }
 
-#gameboard-container > div {
+.grid-box {
     height: 1fr;
     width: 1fr;
     border: 1px solid black;

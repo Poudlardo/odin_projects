@@ -7,11 +7,11 @@ let displayControllerModule = ()=> {
     if (theWinnerIs() === true) {
         return alert('Bravo ! c\'est gagné!');
     } else if (count[playerOne.assignedXO] === 0 && count[playerTwo.assignedXO === 0]) {
-        // joueur 1 joue
+        // joueur 1 qui joue
     } else if (count[playerOne.assignedXO] > count[playerTwo.assignedXO]) {
-        // joueur 2 joue
+        // joueur 2 qui joue
     } else if (count[playerOne.assignedXO] == count[playerTwo.assignedXO]) {
-        // joueur 1 joue
+        // joueur 1 qui joue
     };
     }
 

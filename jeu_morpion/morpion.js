@@ -6,14 +6,21 @@ let gameboardModule = (() => {
 })();
 
 let displayControllerModule = ()=> {
-    if (count[playerOne.assignedXO] === 0 && count[playerTwo.assignedXO === 0]) {
+    if (countValuesInGameboard(playerOne.assignedXO) === 0 && countValuesInGameboard(playerTwo.assignedXO) === 0) {                                                     // le cas ou la grille est vide
         div.innerHTML = 'X' // ou '${playerOne.assignedXO}' p     --> X représente ici ce que le joueur1 (celui qui commence) a choisi dans son input
-    } else if (count[playerOne.assignedXO] > count[playerTwo.assignedXO]) {
+        renderArrayToGameBoard();
+    } else if (countValuesInGameboard(playerOne.assignedXO) > countValuesInGameboard(playerTwo.assignedXO)) {                                                           // le cas ou 
         div.innerHTML = 'O'; // ou '${playerTwo.assignedXO}' p     --> X représente ici ce que le joueur1 (celui qui commence) a choisi dans son input
-    } else if (count[playerOne.assignedXO] == count[playerTwo.assignedXO]) {
+        renderArrayToGameBoard();
+    } else if (countValuesInGameboard(playerOne.assignedXO) === countValuesInGameboard(playerTwo.assignedXO)) {
         div.innerHTML = 'X' // ou '${playerOne.assignedXO}' p     --> X représente ici ce que le joueur (celui qui commence) a choisi dans son input
+        renderArrayToGameBoard();
     };
     }
+
+let countValuesInGameboard = (assignedXO) => {
+   return gameboardModule.gameboard.filter(value => value === assignedXO).length  
+}
 
 let createPlayer = (playerName, playerNumber, assignedXO) => {
     let getPlayerName = () => { playerName;
@@ -22,11 +29,13 @@ let createPlayer = (playerName, playerNumber, assignedXO) => {
 };
 
 
-(function renderArrayToGameBoard() {
+function renderArrayToGameBoard() {
     for (i=0;i < gameboardModule.gameboard.length;i++) {
        gameboardModule.gameboard[i] = document.querySelectorAll('.grid-box')[i].textContent ;
-    } 
-})()
+    }
+    console.log(gameboardModule.gameboard);
+    return gameboardModule.gameboard;
+}
 
 let addMarkToGameBoardArray = (() => {
     const divs = document.querySelectorAll('.grid-box');

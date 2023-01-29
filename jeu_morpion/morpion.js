@@ -5,21 +5,31 @@ let gameboardModule = (() => {
     return {gameboard};
 })();
 
-let displayControllerModule = ()=> {
-    if (countValuesInGameboard(playerOne.assignedXO) === 0 && countValuesInGameboard(playerTwo.assignedXO) === 0) {                                                     // le cas ou la grille est vide
-        div.innerHTML = 'X' // ou '${playerOne.assignedXO}' p     --> X représente ici ce que le joueur1 (celui qui commence) a choisi dans son input
-        renderArrayToGameBoard();
-    } else if (countValuesInGameboard(playerOne.assignedXO) > countValuesInGameboard(playerTwo.assignedXO)) {                                                           // le cas ou 
-        div.innerHTML = 'O'; // ou '${playerTwo.assignedXO}' p     --> X représente ici ce que le joueur1 (celui qui commence) a choisi dans son input
-        renderArrayToGameBoard();
-    } else if (countValuesInGameboard(playerOne.assignedXO) === countValuesInGameboard(playerTwo.assignedXO)) {
-        div.innerHTML = 'X' // ou '${playerOne.assignedXO}' p     --> X représente ici ce que le joueur (celui qui commence) a choisi dans son input
-        renderArrayToGameBoard();
-    };
+
+
+// refaire les condtions en fonction de celui qui commence, à determiner 
+let displayControllerModule = (e)=> {
+
+    let gameboardStr = gameboardModule.gameboard.join('');
+    let matchGameboardValues = gameboardStr.match(/[A-Z]/)
+    let valuesNumber = matchGameboardValues.length;
+
+    if (gameboardModule.gameboard.includes("X") === false && gameboardModule.gameboard.includes("O") === false) { // la grille est vide, déterminer qui joue en premier 
+        randomStart();
+        if (firstPlayer === 0) {
+            e.innerHTML = 'X';
+        } else {
+            e.innerHTML = 'O';
+        }
+    } else if ((firstPlayer === 0 && valuesNumber % 2 !== 0) || (firstPlayer === 1 && valuesNumber % 2 == 0))  { 
+        e.innerHTML = "O";
+    } else if ((firstPlayer === 0 && valuesNumber % 2 == 0) || (firstPlayer === 1 && valuesNumber % 2 !== 0)) {
+        e.innerHTML = "X";
+    }
     }
 
 let countValuesInGameboard = (assignedXO) => {
-   return gameboardModule.gameboard.filter(value => value === assignedXO).length  
+   return gameboardModule.gameboard.filter(value => value === assignedXO).length ;
 }
 
 let createPlayer = (playerName, playerNumber, assignedXO) => {
@@ -28,6 +38,19 @@ let createPlayer = (playerName, playerNumber, assignedXO) => {
     return {playerName,playerNumber, assignedXO};
 };
 
+const joueurUn = document.getElementById('joueurUn').innerHTML;
+const joueurDeux = document.getElementById('joueurDeux').innerHTML;
+const playerOne = createPlayer(joueurUn, 0, "X");
+const playerTwo = createPlayer(joueurDeux, 1, "O");
+
+function randomStart() {
+    const joueurUnOuDeux = [0,1];
+    let joueurUodLength = joueurUnOuDeux.length;
+    let randomNumber = Math.random();
+    randomNumber = Math.floor(randomNumber*joueurUodLength);
+    let firstPlayer = joueurUnOuDeux[randomNumber];
+    return firstPlayer;
+}
 
 function renderArrayToGameBoard() {
     for (i=0;i < gameboardModule.gameboard.length;i++) {
@@ -40,18 +63,16 @@ function renderArrayToGameBoard() {
 let addMarkToGameBoardArray = (() => {
     const divs = document.querySelectorAll('.grid-box');
     Array.from(divs).forEach(e => {
-    e.addEventListener('click', (e) => {
-        e.currentTarget.innerHTML = "sluuur";
-    })
+    e.addEventListener('click', displayControllerModule(e))
     })
 })()
  
 function deuxSale() {
-    console.log('sskuuur')
+    console.log('sskuuur');
 }
 
 (function theWinnerIs() {
-    const gameboardStr = gameboardModule.gameboard.join('');
+    let gameboardStr = gameboardModule.gameboard.join('');
     for (i=0;i<gameboardStr.length;i++){
         if (/XXX/.test(gameboardStr) || /OOO/.test(gameboardStr)) { // horizontal winning case
             return alert('Bravo, finito pipo ! c\'est gagné!');

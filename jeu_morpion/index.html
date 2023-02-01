@@ -11,18 +11,18 @@
 <body>
     <h1>Jeu du morpion</h1>
     <div id="gameboard-container">
-        <div class="grid-box"></div>
-        <div class="grid-box"></div>
-        <div class="grid-box"></div>
-        <div class="grid-box"></div>
-        <div class="grid-box"></div>
-        <div class="grid-box"></div>
-        <div class="grid-box"></div>
-        <div class="grid-box"></div>
-        <div class="grid-box"></div>
+        <div class="grid-box"> </div>
+        <div class="grid-box"> </div>
+        <div class="grid-box"> </div>
+        <div class="grid-box"> </div>
+        <div class="grid-box"> </div>
+        <div class="grid-box"> </div>
+        <div class="grid-box"> </div>
+        <div class="grid-box"> </div>
+        <div class="grid-box"> </div>
     </div><br>
-    <div>
-        <form action="" method="get">
+    <div id="formarea">
+        <form id="showform" action="" method="get">
             <div class="joueurUn">
                 <label>X :
                  <input type="text" id="joueurUn" placeholder="Joueur 1" required minlength="4" maxlength="8" size="10">
@@ -33,9 +33,8 @@
                  <input type="text" id="joueurDeux" placeholder="Joueur 2" required minlength="4" maxlength="8" size="10">
                 </label>              
             </div><br>
-            <input type="submit" value="Commencer !">
+            <input type="submit" id="commencer"value="Commencer !">
         </form>
-       
     </div>
 </body>
 </html>

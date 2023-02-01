@@ -5,31 +5,42 @@ let gameboardModule = (() => {
     return {gameboard};
 })();
 
+let firstPlayerFunc = (() => {
+    const joueurUnOuDeux = [0,1];
+    let joueurUodLength = joueurUnOuDeux.length;
+    let randomNumber = Math.floor(Math.random()*joueurUodLength);
+    let firstPlayer = joueurUnOuDeux[randomNumber];
+    return {firstPlayer};
+})()
 
+// action au lancement de la partie
+let submitData = document.getElementById('commencer');
+submitData.addEventListener('click', startGame);
 
-// refaire les condtions en fonction de celui qui commence, à determiner 
-let displayControllerModule = (e)=> {
+function startGame() {
 
-    let gameboardStr = gameboardModule.gameboard.join('');
-    let matchGameboardValues = gameboardStr.match(/[A-Z]/)
-    let valuesNumber = matchGameboardValues.length;
+const joueurUn = document.getElementById('joueurUn').value;
+const joueurDeux = document.getElementById('joueurDeux').value;
 
-    if (gameboardModule.gameboard.includes("X") === false && gameboardModule.gameboard.includes("O") === false) { // la grille est vide, déterminer qui joue en premier 
-        randomStart();
-        if (firstPlayer === 0) {
-            e.innerHTML = 'X';
-        } else {
-            e.innerHTML = 'O';
+const playerOne = createPlayer(joueurUn, 0, "X");
+const playerTwo = createPlayer(joueurDeux, 1, "O");
+
+const showform = document.getElementById('showform');
+showform.style.display = 'none';
+
+    if (joueurUn == "" || joueurDeux =="") {
+            return;
         }
-    } else if ((firstPlayer === 0 && valuesNumber % 2 !== 0) || (firstPlayer === 1 && valuesNumber % 2 == 0))  { 
-        e.innerHTML = "O";
-    } else if ((firstPlayer === 0 && valuesNumber % 2 == 0) || (firstPlayer === 1 && valuesNumber % 2 !== 0)) {
-        e.innerHTML = "X";
-    }
-    }
 
-let countValuesInGameboard = (assignedXO) => {
-   return gameboardModule.gameboard.filter(value => value === assignedXO).length ;
+    if (firstPlayerFunc.firstPlayer == playerOne.playerNumber) {
+        const formarea = document.getElementById('formarea');
+        formarea.textContent = `${joueurUn} tu commences !`;
+        return firstPlayerFunc.firstPlayer;
+    } else if (firstPlayerFunc.firstPlayer == playerTwo.playerNumber) {
+        const formarea = document.getElementById('formarea');
+        formarea.textContent = `${joueurDeux} tu commences !`;
+        return firstPlayerFunc.firstPlayer
+    }
 }
 
 let createPlayer = (playerName, playerNumber, assignedXO) => {
@@ -38,50 +49,65 @@ let createPlayer = (playerName, playerNumber, assignedXO) => {
     return {playerName,playerNumber, assignedXO};
 };
 
-const joueurUn = document.getElementById('joueurUn').innerHTML;
-const joueurDeux = document.getElementById('joueurDeux').innerHTML;
-const playerOne = createPlayer(joueurUn, 0, "X");
-const playerTwo = createPlayer(joueurDeux, 1, "O");
-
-function randomStart() {
-    const joueurUnOuDeux = [0,1];
-    let joueurUodLength = joueurUnOuDeux.length;
-    let randomNumber = Math.random();
-    randomNumber = Math.floor(randomNumber*joueurUodLength);
-    let firstPlayer = joueurUnOuDeux[randomNumber];
-    return firstPlayer;
-}
-
-function renderArrayToGameBoard() {
-    for (i=0;i < gameboardModule.gameboard.length;i++) {
-       gameboardModule.gameboard[i] = document.querySelectorAll('.grid-box')[i].textContent ;
+// refaire les condtions en fonction de celui qui commence, à determiner 
+let displayControllerModule = (e)=> {
+    if (e.target.innerHTML !== ' ') {
+        window.alert('Cette case a déjà été joué');
+        } else if (countValuesInGameboard.assignedXO == null && firstPlayerFunc.firstPlayer === 0) {
+            e.target.innerHTML = "X";
+        } else if (countValuesInGameboard.assignedXO == null && firstPlayerFunc.firstPlayer === 1) {
+            e.target.innerHTML = "O";
+        }else if ((firstPlayerFunc.firstPlayer === 0 && countValuesInGameboard % 2 !== 0) || (firstPlayerFunc.firstPlayer === 1 && countValuesInGameboard % 2 == 0))  { 
+        e.target.innerHTML = "O";
+    }   else if ((firstPlayerFunc.firstPlayer === 0 && countValuesInGameboard % 2 == 0) || (firstPlayerFunc.firstPlayer === 1 && countValuesInGameboard % 2 !== 0)) {
+        e.target.innerHTML = "X";
     }
-    console.log(gameboardModule.gameboard);
-    return gameboardModule.gameboard;
 }
+
+let countValuesInGameboard = (() => {
+    let boxesArr = [];
+    let divs = document.querySelectorAll('.grid-box').forEach(function(e){
+        boxesArr.push(e.innerHTML);
+    });
+    const boxesStr = boxesArr.join('');
+    let assignedXO = boxesStr.match(/[A-Z]/g);
+    if (assignedXO === null) {
+        return 0;
+      }
+      console.log(assignedXO.length)
+   return assignedXO.length
+})()
+
+let renderArrayToGameBoardfunction = (() => {
+    const divBoxes = document.querySelectorAll('.grid-box');
+    const boxesArr = Array.from(divBoxes);
+
+    for (i=0;i < boxesArr.length;i++) {
+      gameboardModule.gameboard.splice(i, 1, boxesArr[i]);
+    }
+    console.log(gameboardModule.gameboard)
+    return gameboardModule.gameboard;
+})
 
 let addMarkToGameBoardArray = (() => {
-    const divs = document.querySelectorAll('.grid-box');
-    Array.from(divs).forEach(e => {
-    e.addEventListener('click', displayControllerModule(e))
+    const divsBoxes = document.querySelectorAll('.grid-box');
+    Array.from(divsBoxes).forEach(el => {
+    el.addEventListener('click', displayControllerModule)
     })
 })()
  
-function deuxSale() {
-    console.log('sskuuur');
-}
-
-(function theWinnerIs() {
+let theWinnerIs = (() => {
     let gameboardStr = gameboardModule.gameboard.join('');
     for (i=0;i<gameboardStr.length;i++){
         if (/XXX/.test(gameboardStr) || /OOO/.test(gameboardStr)) { // horizontal winning case
-            return alert('Bravo, finito pipo ! c\'est gagné!');
+            return windows.alert('Bravo, finito pipo ! c\'est gagné!');
         } else if (/X\D{2}X\D{2}X/.test(gameboardStr) || /O\D{2}O\D{2}O/.test(gameboardStr)) {  // vertical winning case
-            return alert('Bravo, finito pipo ! c\'est gagné!');
+            return windows.alert('Bravo, finito pipo ! c\'est gagné!');
         } else if (/^X\D{3}X\D{3}X$/.test(gameboardStr) || /^O\D{3}O\D{3}O$/.test(gameboardStr)) { // first diagonal winning case
-            return alert('Bravo, finito pipo ! c\'est gagné!');
+            return windows.alert('Bravo, finito pipo ! c\'est gagné!');
         } else if (/^D{2}X\DX\DX\D{3}$/.test(gameboardStr) || /^O\D{3}O\D{3}O$/.test(gameboardStr)) { // second diagonal winning case 
-            return alert('Bravo, finito pipo ! c\'est gagné!');
+            return windows.alert('Bravo, finito pipo ! c\'est gagné!');
         }
     }
 })()
+

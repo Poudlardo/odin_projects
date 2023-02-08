@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeu du Morpion</title>
-    <script src="morpion.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <script src="morpion.js" defer></script>
+  <title>Jeu du morpion</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap');
+  </style>
 </head>
 <body>
-    <h1>Jeu du morpion</h1>
-    <div id="gameboard-container">
-        <div class="grid-box"> </div>
-        <div class="grid-box"> </div>
-        <div class="grid-box"> </div>
-        <div class="grid-box"> </div>
-        <div class="grid-box"> </div>
-        <div class="grid-box"> </div>
-        <div class="grid-box"> </div>
-        <div class="grid-box"> </div>
-        <div class="grid-box"> </div>
-    </div><br>
-    <div id="formarea">
-        <form id="showform" action="" method="get">
-            <div class="joueurUn">
-                <label>X :
-                 <input type="text" id="joueurUn" placeholder="Joueur 1" required minlength="4" maxlength="8" size="10">
-                </label>           
-            </div><br>
-            <div class="joueurDeux">
-                <label>O :
-                 <input type="text" id="joueurDeux" placeholder="Joueur 2" required minlength="4" maxlength="8" size="10">
-                </label>              
-            </div><br>
-            <input type="submit" id="commencer"value="Commencer !">
-        </form>
-    </div>
+    <h1>Morpion en ligne</h1>
+  <div class="board" id="board">
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+  </div>
+  <div class="winning-message" id="winningMessage">
+    <div data-winning-message-text></div>
+    <button id="restartButton">Recommencer</button>
+  </div>
 </body>
 </html>

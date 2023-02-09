@@ -1,6 +1,6 @@
 # odin_projects
 
-=> Projets réalisés de zéro dans le cadre du parcours d'apprentissage [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript) / Small projects I made from scratch in the context of [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript) learning path :
+Projets réalisés de zéro dans le cadre du parcours d'apprentissage [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript)
 
 ____
 

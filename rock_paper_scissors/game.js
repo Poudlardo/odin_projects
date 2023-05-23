@@ -8,11 +8,12 @@ let score = 0;
 
 function singleRound(playerSelection, computerSelection) {
 if (score == 5) {
-    return "congratulations! we have a winner here";
+    document.getElementById('retry').style.display = 'block';
+    return "CONGRATS! We have a winner here";
 } else if (playerSelection.toLowerCase() == "rock") {
     if (computerSelection == 'scissors') {
         score += 1;
-        add.innerHTML = score;
+        add.innerHTML = score + ' pts';
         return "You Win! Rock beats scissors";
     } else {
         return "You Lose! Paper beats rock";
@@ -20,7 +21,7 @@ if (score == 5) {
 } else if (playerSelection.toLowerCase() == "paper") {
     if (computerSelection == 'rock') {
         score += 1;
-        add.innerHTML = score;
+        add.innerHTML = score + ' pts';
         return "You Win! Paper beats rock";
     } else {
         return "You Lose! Scissors beats paper";
@@ -28,7 +29,7 @@ if (score == 5) {
 } else if (playerSelection.toLowerCase() == 'scissors') {
     if (computerSelection == 'paper') {
         score += 1;
-        add.innerHTML = score;
+        add.innerHTML = score + ' pts';
         return "You Win! Scissors beats paper";
     } else {
         return "You Lose! Rock beats scissors";
@@ -38,12 +39,22 @@ if (score == 5) {
 }    
 }
 
-let buttons = document.querySelectorAll('button');
+let buttons = document.querySelectorAll('label');
 
 let source = document.getElementById('results');
+
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', (e)=> {
 	 let playerSelection = e.target.id ;
 	 source.innerHTML = "<br>" + "Results : " + singleRound(playerSelection, getComputerChoice());
     }  );
+}
+
+function replay() { 
+let results = document.getElementById('results');
+let add = document.getElementById('add');
+  add.innerHTML = '0 pts';
+  results.innerHTML = '';
+  document.getElementById('retry').style.display = 'none';
+  return score = 0;
 }

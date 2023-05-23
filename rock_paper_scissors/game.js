@@ -26,7 +26,7 @@ if (score > 4) {
     } else {
         return "You Lose! Scissors beats paper";
     }
-} else if (playerSelection.toLowerCase() == 'scissors') {
+} else if (playerSelection.toLowerCase() == "scissors") {
     if (computerSelection == 'paper') {
         score += 1;
         add.innerHTML = score + ' pts';

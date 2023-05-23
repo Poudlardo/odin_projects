@@ -7,7 +7,7 @@ function getComputerChoice() {
 let score = 0;
 
 function singleRound(playerSelection, computerSelection) {
-if (score == 5) {
+if (score > 4) {
     document.getElementById('retry').style.display = 'block';
     return "CONGRATS! We have a winner here";
 } else if (playerSelection.toLowerCase() == "rock") {

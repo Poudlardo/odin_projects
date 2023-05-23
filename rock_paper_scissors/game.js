@@ -7,7 +7,7 @@ function getComputerChoice() {
 let score = 0;
 
 function singleRound(playerSelection, computerSelection) {
-if (score > 4) {
+if (score == 5) {
     document.getElementById('retry').style.display = 'block';
     return "CONGRATS! We have a winner here";
 } else if (playerSelection.toLowerCase() == "rock") {
@@ -26,7 +26,7 @@ if (score > 4) {
     } else {
         return "You Lose! Scissors beats paper";
     }
-} else if (playerSelection.toLowerCase() == "scissors") {
+} else if (playerSelection.toLowerCase() == 'scissors') {
     if (computerSelection == 'paper') {
         score += 1;
         add.innerHTML = score + ' pts';
@@ -46,6 +46,7 @@ let source = document.getElementById('results');
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', (e)=> {
 	 let playerSelection = e.target.id ;
+      console.log(playerSelection);
 	 source.innerHTML = "<br>" + "Results : " + singleRound(playerSelection, getComputerChoice());
     }  );
 }
